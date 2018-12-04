@@ -37,3 +37,4 @@ class GasCar(Car):
 			self.speed = 0
 
 car = GasCar(0, 'good', 'alive')
+yg
