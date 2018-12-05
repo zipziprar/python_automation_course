@@ -1,11 +1,11 @@
-
+import random
 
 class Car(object):
 
-	def __init__(self, speed=0, state='good', alive=True):
+	def __init__(self, alive, speed=0, state='good'):
 		self.speed = speed
-		self.state = ['good', 'medium', 'bad', 'dead']
-		self.alive = alive
+		self.state = state
+		self.alive = True
 
 
 class GasCar(Car):
@@ -25,7 +25,7 @@ class GasCar(Car):
 
 	def get_state_coef(self):
 		if self.state is good:
-			speed = speed
+			self.speed = speed
 
 		elif self.satate is medium:
 			self.speed *= 0.85
@@ -33,8 +33,12 @@ class GasCar(Car):
 		elif self.state is bad:
 			self.speed *= 0.6
 
-		else: 
+		elif self.state is dead: 
 			self.speed = 0
 
-car = GasCar(0, 'good', 'alive')
-yg
+	def is_alive(self):
+		return self.state != 'dead' and self.gas != 0
+
+car = GasCar(0, 'state', 'alive')
+car.state = ['good', 'medium', 'bad', 'dead']
+
