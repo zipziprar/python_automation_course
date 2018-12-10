@@ -32,8 +32,8 @@ class Car(object):
 
 class GasCar(Car):
 
-	def __init__(self, speed, state, alive, gas=100):
-		super(GasCar, self).__init__(speed, alive)
+	def __init__(self, gas=100):
+		super(GasCar, self).__init__()
 		self.gas = gas
 
 	def turn_on(self):
@@ -49,7 +49,7 @@ class GasCar(Car):
 	def is_alive(self):
 		return self.state != 'dead' and self.gas != 0
 
-car = GasCar(0, 'state', 'alive')
+car = GasCar()
 car.state = ['good', 'medium', 'bad', 'dead']
 
 
