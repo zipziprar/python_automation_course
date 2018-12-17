@@ -4,7 +4,7 @@ from way import current_way
 
 class GeneralCalculation(object):
 
-	def gameplay():
+	def get_action():
 		action = input ("whad do u want to do next (speed up or break): ")
 		if action is 'speed up':
 			ss.car.get_speed()
@@ -23,7 +23,6 @@ class GeneralCalculation(object):
 	def get_way_calculation():
 		step =  ss.car.speed * 1
 		current_way -= step
-		print (way)
 		return way
 
 
@@ -37,7 +36,7 @@ class GeneralCalculation(object):
 		while ss.car.state:
 			ss.car.turn_on()
 			print (ss.car.gas)
-			gameplay()
+			get_action()
 			get_gas_calculattion()
 			get_way_calculation()
 			get_car_state()

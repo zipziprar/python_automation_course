@@ -1,7 +1,7 @@
 
 class Way(object):
 
-	def __new__ (self, length):
+	def __init__ (self, length):
 		self.length = length
 
 current_way = Way(1000)
