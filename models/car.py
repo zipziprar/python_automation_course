@@ -17,31 +17,27 @@ class Car(object):
 		self.alive = True
 
 
-	def get_state(self):
-		for x in random.randint(range(4)):
-			return x
+	state = property()
 
 	def define_state(self, x):
-		if x == 0:
+		''''''
+
+	@property
+	def state (self, state_number):
+		if state_number == 0:
 			self.state = CarState.GOOD
-		if x == 1:
+		if state_number == 1:
 			self.state = CarState.MEDIUM
-		if x == 2:
+		if state_number == 2:
 			self.state = CarState.BAD
 		else:
 			self.state = CarState.DEAD
-
-	@property
-	def real_speed(self):
 		return self.speed
 
-	@real_speed.setter
-	def real_speed(self, state):
-		self.speed *= state.value
+	@state.getter
+	def state (self, state):
+		return self.state
 
-	@real_speed.getter
-	def real_speed(self):
-		return self.speed
 
 	def change_stat(self, state: CarState):
 		self.real_speed = state.value
@@ -65,10 +61,6 @@ class GasCar(Car):
 	def is_alive(self):
 		return self.state != 'dead' and self.gas != 0
 
-car = GasCar()
-car.state = ['good', 'medium', 'bad', 'dead']
-bbb = GasCar()
-bbb.hh = GOOD
 
 
 

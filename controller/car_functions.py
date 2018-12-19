@@ -1,4 +1,5 @@
-import car as ss
+#import models.car as ss
+from .models import car as ss
 import random
 from way import current_way
 
@@ -25,11 +26,10 @@ class GeneralCalculation(object):
 		current_way -= step
 		return way
 
-
-	def get_car_state():
-		number = random.randint(0, 3)
-		for state in ss.car.state:
-			return ss.car.state[number]
+	def get_state(self):
+		for state_number in random.randint(range(4)):
+#			return state_number
+			return [ss.car.state[state_number] for state in ss.car.state]
 
 
 	def get_step():
@@ -44,5 +44,5 @@ class GeneralCalculation(object):
 			print(ss.car.state, ss.car.gas)
 
 
-get_step()
+
 
