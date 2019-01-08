@@ -1,0 +1,14 @@
+{
+  "cars" : [{
+    "model" : " BMW",
+    "gas" : 100
+  },
+  {
+    "model" : "LADA",
+    "gas" : 150
+  },
+  {
+    "model" : "SUZUKI",
+    "gas" : 70
+  }]
+}

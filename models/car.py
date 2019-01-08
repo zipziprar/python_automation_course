@@ -62,5 +62,15 @@ class GasCar(Car):
 		return self.state != 'dead' and self.gas != 0
 
 
+with open ('cars.json', 'r') as obj:
+	data = obj.read()
+
+json_cars = json.loads(data)
+cars = json_cars["cars"]
+print(json_cars)
+
+gas_car_object = GasCar(cars[0]["model"], cars[0]["gas"])
+
+
 
 
