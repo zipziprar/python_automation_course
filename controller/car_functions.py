@@ -31,6 +31,19 @@ class GeneralCalculation(object):
 #			return state_number
 			return [ss.car.state[state_number] for state in ss.car.state]
 
+	def show_state():
+		if ss.car.state == 'GOOD':
+			with open ('good_state.txt', 'r') as f:
+				data = f.read()
+				print(data)
+		elif ss.car.state == 'BAD':
+			with open ('bad_state.txt', 'r') as f:
+				data = f.read()
+				print(data)
+		elif ss.car.state = 'DEAD':
+			with open ('dead_state.txt', 'r') as f:
+				data = f.read()
+				print(data)
 
 	def get_step():
 		while ss.car.state:

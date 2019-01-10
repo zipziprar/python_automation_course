@@ -53,7 +53,7 @@ class GasCar(Car):
 		self.gas -= 5
 
 	def get_speed(self):
-		self.speed += 10
+		self.speed * state.value += 10
 
 	def get_break(self):
 		self.speed -= 7
@@ -70,6 +70,8 @@ cars = json_cars["cars"]
 print(json_cars)
 
 gas_car_object = GasCar(cars[0]["model"], cars[0]["gas"])
+
+print(gas_car_object)
 
 
 
