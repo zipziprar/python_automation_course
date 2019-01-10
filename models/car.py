@@ -48,12 +48,13 @@ class GasCar(Car):
 	def __init__(self, gas=100):
 		super(GasCar, self).__init__()
 		self.gas = gas
+		self.max_speed = None
 
 	def turn_on(self):
 		self.gas -= 5
 
 	def get_speed(self):
-		self.speed * state.value += 10
+		self.speed =  self. speed * state.value + 10
 
 	def get_break(self):
 		self.speed -= 7

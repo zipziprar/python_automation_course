@@ -1,14 +1,17 @@
 {
   "cars" : [{
     "model" : " BMW",
-    "gas" : 100
+    "gas" : 100,
+    "max_speed" : 200
   },
   {
     "model" : "LADA",
-    "gas" : 150
+    "gas" : 150,
+    "max_speed" : 180
   },
   {
     "model" : "SUZUKI",
-    "gas" : 70
+    "gas" : 70,
+    "max_speed" : 300
   }]
 }
