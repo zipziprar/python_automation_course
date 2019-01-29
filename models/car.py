@@ -1,5 +1,6 @@
 from enum import Enum
 import random
+import json
 
 
 class CarState(Enum):
@@ -32,7 +33,7 @@ class Car(object):
 			self.state = CarState.BAD
 		else:
 			self.state = CarState.DEAD
-		return self.speed
+#			return (self.alive = False)
 
 	@state.getter
 	def state (self, state):
@@ -45,10 +46,11 @@ class Car(object):
 
 class GasCar(Car):
 
-	def __init__(self, gas=100):
+	def __init__(self, model, gas, max_speed):
 		super(GasCar, self).__init__()
+		self.model = model
 		self.gas = gas
-		self.max_speed = None
+		self.max_speed = max_speed
 
 	def turn_on(self):
 		self.gas -= 5
@@ -63,17 +65,23 @@ class GasCar(Car):
 		return self.state != 'dead' and self.gas != 0
 
 
-with open ('cars.json', 'r') as obj:
-	data = obj.read()
 
-json_cars = json.loads(data)
-cars = json_cars["cars"]
-print(json_cars)
+class CarsFactory(object):
+    @classmethod
+    def get_car_by_model(cls, model, source):
+        cars_from_json = get_list_of_cars(source)
+        list_of_cars = cars_from_json.get("cars") 
+        if not list_of_cars:
+            return None
+        for car in list_of_cars:
+            if model in car["model"]:
+                return GasCar(car["model"], car["gas"], car["max_speed"])
 
-gas_car_object = GasCar(cars[0]["model"], cars[0]["gas"])
-
-print(gas_car_object)
 
 
+def get_list_of_cars(filename):
+    with open(filename, 'r') as f:
+        cars_obj = json.load(f)
+    return cars_obj
 
 
